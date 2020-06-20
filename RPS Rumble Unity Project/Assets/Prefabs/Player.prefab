@@ -85,7 +85,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a2e35dd77ab7e4c9d5f63b8d2b1bc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subChars:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  abilityCooldownStates:
+  - 0
+  - 0
+  - 0
+  initialHealth: 100
+  flyFallSpeed: 0.5
+  jumpSpeed: 2
+  abilityCooldowns:
+  - 3
+  - 3
+  - 3

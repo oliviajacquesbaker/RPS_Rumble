@@ -2,9 +2,9 @@
 {
     public bool isSet { get; private set; } = false;
 
-    public void set()
+    public void set(bool value = true)
     {
-        isSet = true;
+        isSet = value;
     }
 
     public void reset()
