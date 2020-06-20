@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class playerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     //movement variables
     [System.NonSerialized]
