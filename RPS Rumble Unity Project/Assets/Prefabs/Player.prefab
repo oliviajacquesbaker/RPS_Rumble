@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6329764495154692102}
+  - component: {fileID: 3619113018949579441}
   - component: {fileID: 3203675521858531495}
   - component: {fileID: 6329764495154692103}
   - component: {fileID: 6329764495154692097}
+  - component: {fileID: 1829148887802591320}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -33,6 +35,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &3619113018949579441
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6329764495154692096}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!50 &3203675521858531495
 Rigidbody2D:
   serializedVersion: 4
@@ -85,10 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a2e35dd77ab7e4c9d5f63b8d2b1bc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityCooldownStates:
-  - 0
-  - 0
-  - 0
   initialHealth: 100
   flyFallSpeed: 0.5
   jumpSpeed: 2
@@ -96,3 +110,19 @@ MonoBehaviour:
   - 3
   - 3
   - 3
+--- !u!114 &1829148887802591320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6329764495154692096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78050f0e793f3d145b68ca7f73909c94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpKey: 
+  attackKey: 
+  abilityKey: 
+  crouchKey: 

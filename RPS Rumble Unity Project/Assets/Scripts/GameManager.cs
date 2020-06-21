@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
     {
         for(int i=0; i < players.Length; i++)
         {
-            players[i].SetActive(false);
+            players[i].enabled = false;
         }
     }
 

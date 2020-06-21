@@ -1,6 +1,6 @@
-﻿public class Latch
+﻿public struct Latch
 {
-    public bool isSet { get; private set; } = false;
+    public bool isSet { get; private set; }
 
     public void set(bool value = true)
     {
