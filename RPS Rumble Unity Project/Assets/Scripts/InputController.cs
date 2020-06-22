@@ -16,27 +16,53 @@ public class InputController : MonoBehaviour
     private string abilityKey;
     [SerializeField]
     private string crouchKey;
-   
+    [SerializeField]
+    private string hMove;
+    [SerializeField]
+    private string rockKey;
+    [SerializeField]
+    private string paperKey;
+    [SerializeField]
+    private string scissorsKey;
+
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
     }
-
    
 
     void Update()
     {
-        playerController.jumping = Input.GetKey(jumpKey);
-        playerController.crouching = Input.GetKey(crouchKey);
-        playerController.movement = Input.GetAxis("Horizontal");
+        try
+        {
+            playerController.jumping = Input.GetButton(jumpKey);
+            playerController.crouching = Input.GetButton(crouchKey);
+            playerController.movement = Input.GetAxis(hMove);
 
-        if (Input.GetKeyDown(attackKey))
+            if (Input.GetButtonDown(attackKey))
+            {
+                playerController.punch();
+            }
+            if (Input.GetButtonDown(abilityKey))
+            {
+                playerController.useAbility();
+            }
+            if (Input.GetButtonDown(rockKey))
+            {
+                playerController.selectCharacter(0);
+            }
+            if (Input.GetButtonDown(paperKey))
+            {
+                playerController.selectCharacter(1);
+            }
+            if (Input.GetButtonDown(scissorsKey))
+            {
+                playerController.selectCharacter(2);
+            }
+        }catch (System.ArgumentException e)
         {
-            playerController.punch();
-        }
-        if (Input.GetKeyDown(abilityKey))
-        {
-            playerController.useAbility();
+            enabled = false;
+            Debug.LogError("Argument exception. Message from exception: " + e.Message);
         }
     }
 }
