@@ -20,8 +20,9 @@ public class PlayerController : MonoBehaviour
         }
         set
         {
+            if (m_jumping != value)
+                jumpTrigger.set(value);
             m_jumping = value;
-            jumpTrigger.set(value);
         }
     }
     private Latch jumpTrigger;
@@ -44,6 +45,10 @@ public class PlayerController : MonoBehaviour
     public float flyFallSpeed = .5f;
     public float jumpSpeed = 2f;
     public float[] abilityCooldowns = new float[] { 3, 3, 3 };
+
+    [Space]
+    [SerializeField]
+    private LayerMask groundingLayerMask;
 
     public void punch()
     {
@@ -113,7 +118,10 @@ public class PlayerController : MonoBehaviour
 
     private void checkGround()
     {
-        isGrounded = Physics2D.Raycast((Vector2)transform.position + (Vector2.up * .01f), Vector2.down, .02f);
+        RaycastHit2D hit;
+        hit = Physics2D.Raycast(transform.position, Vector2.down, .01f, groundingLayerMask);
+
+        isGrounded = hit.collider;
     }
 
     private void updateCooldowns()

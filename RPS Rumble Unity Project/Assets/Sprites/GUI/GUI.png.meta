@@ -109,10 +109,10 @@ TextureImporter:
     second: Help
   - first:
       213: -3795098386804696052
-    second: Go Left
+    second: Go Back
   - first:
       213: 402628128169300305
-    second: Go Right
+    second: Go Forward
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -225,13 +225,13 @@ TextureImporter:
       name: Health Bar
       rect:
         serializedVersion: 2
-        x: 13
-        y: 69
-        width: 60
+        x: 1
+        y: 56
+        width: 26
         height: 11
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 13, y: 0, z: 14, w: 0}
+      border: {x: 12, y: 0, z: 13, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -246,10 +246,10 @@ TextureImporter:
       name: Health Bar Fill 1
       rect:
         serializedVersion: 2
-        x: 84
-        y: 77
-        width: 49
-        height: 5
+        x: 1
+        y: 51
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,10 +267,10 @@ TextureImporter:
       name: Health Bar Fill 2
       rect:
         serializedVersion: 2
-        x: 84
-        y: 70
-        width: 49
-        height: 5
+        x: 6
+        y: 51
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,10 +288,10 @@ TextureImporter:
       name: Health Bar Fill 3
       rect:
         serializedVersion: 2
-        x: 84
-        y: 63
-        width: 49
-        height: 5
+        x: 11
+        y: 51
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -309,8 +309,8 @@ TextureImporter:
       name: Button 1 Normal
       rect:
         serializedVersion: 2
-        x: 13
-        y: 53
+        x: 1
+        y: 41
         width: 9
         height: 9
       alignment: 0
@@ -330,8 +330,8 @@ TextureImporter:
       name: Button 1 Pressed
       rect:
         serializedVersion: 2
-        x: 13
-        y: 42
+        x: 1
+        y: 31
         width: 9
         height: 9
       alignment: 0
@@ -351,8 +351,8 @@ TextureImporter:
       name: Button 1 Disabled
       rect:
         serializedVersion: 2
-        x: 13
-        y: 31
+        x: 1
+        y: 21
         width: 9
         height: 9
       alignment: 0
@@ -372,12 +372,12 @@ TextureImporter:
       name: Button 1 Highlighted
       rect:
         serializedVersion: 2
-        x: 13
-        y: 9
+        x: 1
+        y: 1
         width: 9
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 3, y: 3, z: 3, w: 3}
       outline: []
       physicsShape: []
@@ -393,12 +393,12 @@ TextureImporter:
       name: Button 1 Selected
       rect:
         serializedVersion: 2
-        x: 13
-        y: 20
+        x: 1
+        y: 11
         width: 9
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 3, y: 3, z: 3, w: 3}
       outline: []
       physicsShape: []
@@ -414,12 +414,12 @@ TextureImporter:
       name: Button 2 Highlighted
       rect:
         serializedVersion: 2
-        x: 26
-        y: 9
+        x: 11
+        y: 1
         width: 9
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 3, y: 3, z: 3, w: 3}
       outline: []
       physicsShape: []
@@ -435,12 +435,12 @@ TextureImporter:
       name: Button 3 Highlighted
       rect:
         serializedVersion: 2
-        x: 39
-        y: 9
+        x: 21
+        y: 1
         width: 9
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 3, y: 3, z: 3, w: 3}
       outline: []
       physicsShape: []
@@ -456,12 +456,12 @@ TextureImporter:
       name: Button 2 Selected
       rect:
         serializedVersion: 2
-        x: 26
-        y: 20
+        x: 11
+        y: 11
         width: 9
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 3, y: 3, z: 3, w: 3}
       outline: []
       physicsShape: []
@@ -477,12 +477,12 @@ TextureImporter:
       name: Button 3 Selected
       rect:
         serializedVersion: 2
-        x: 39
-        y: 20
+        x: 21
+        y: 11
         width: 9
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 3, y: 3, z: 3, w: 3}
       outline: []
       physicsShape: []
@@ -498,12 +498,12 @@ TextureImporter:
       name: Button 2 Disabled
       rect:
         serializedVersion: 2
-        x: 26
-        y: 31
+        x: 11
+        y: 21
         width: 9
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 3, y: 3, z: 3, w: 3}
       outline: []
       physicsShape: []
@@ -519,12 +519,12 @@ TextureImporter:
       name: Button 3 Disabled
       rect:
         serializedVersion: 2
-        x: 39
-        y: 31
+        x: 21
+        y: 21
         width: 9
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 3, y: 3, z: 3, w: 3}
       outline: []
       physicsShape: []
@@ -540,12 +540,12 @@ TextureImporter:
       name: Button 2 Pressed
       rect:
         serializedVersion: 2
-        x: 26
-        y: 42
+        x: 11
+        y: 31
         width: 9
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 3, y: 3, z: 3, w: 3}
       outline: []
       physicsShape: []
@@ -561,12 +561,12 @@ TextureImporter:
       name: Button 3 Pressed
       rect:
         serializedVersion: 2
-        x: 39
-        y: 42
+        x: 21
+        y: 31
         width: 9
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 3, y: 3, z: 3, w: 3}
       outline: []
       physicsShape: []
@@ -582,12 +582,12 @@ TextureImporter:
       name: Button 2 Normal
       rect:
         serializedVersion: 2
-        x: 26
-        y: 53
+        x: 11
+        y: 41
         width: 9
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 3, y: 3, z: 3, w: 3}
       outline: []
       physicsShape: []
@@ -603,12 +603,12 @@ TextureImporter:
       name: Button 3 Normal
       rect:
         serializedVersion: 2
-        x: 39
-        y: 53
+        x: 21
+        y: 41
         width: 9
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 3, y: 3, z: 3, w: 3}
       outline: []
       physicsShape: []
@@ -624,12 +624,12 @@ TextureImporter:
       name: Pause
       rect:
         serializedVersion: 2
-        x: 59
-        y: 43
-        width: 10
+        x: 31
+        y: 22
+        width: 8
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -645,12 +645,12 @@ TextureImporter:
       name: Play
       rect:
         serializedVersion: 2
-        x: 71
-        y: 43
+        x: 40
+        y: 22
         width: 9
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -666,12 +666,12 @@ TextureImporter:
       name: Music
       rect:
         serializedVersion: 2
-        x: 82
-        y: 43
+        x: 50
+        y: 22
         width: 10
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -687,12 +687,12 @@ TextureImporter:
       name: Sound
       rect:
         serializedVersion: 2
-        x: 97
-        y: 43
+        x: 31
+        y: 33
         width: 12
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -708,12 +708,12 @@ TextureImporter:
       name: Mute 1
       rect:
         serializedVersion: 2
-        x: 113
-        y: 43
+        x: 44
+        y: 33
         width: 10
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -729,12 +729,12 @@ TextureImporter:
       name: Mute 2
       rect:
         serializedVersion: 2
-        x: 124
-        y: 43
+        x: 55
+        y: 33
         width: 11
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -750,12 +750,12 @@ TextureImporter:
       name: Plus
       rect:
         serializedVersion: 2
-        x: 60
-        y: 30
+        x: 31
+        y: 12
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -771,12 +771,12 @@ TextureImporter:
       name: Minus
       rect:
         serializedVersion: 2
-        x: 72
-        y: 30
+        x: 40
+        y: 12
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -792,12 +792,12 @@ TextureImporter:
       name: Left
       rect:
         serializedVersion: 2
-        x: 85
-        y: 29
+        x: 49
+        y: 11
         width: 6
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -813,12 +813,12 @@ TextureImporter:
       name: Right
       rect:
         serializedVersion: 2
-        x: 96
-        y: 29
+        x: 56
+        y: 11
         width: 6
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -834,12 +834,12 @@ TextureImporter:
       name: Up
       rect:
         serializedVersion: 2
-        x: 106
-        y: 32
+        x: 31
+        y: 44
         width: 10
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -855,12 +855,12 @@ TextureImporter:
       name: Down
       rect:
         serializedVersion: 2
-        x: 119
-        y: 32
+        x: 42
+        y: 44
         width: 10
         height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -876,12 +876,12 @@ TextureImporter:
       name: No
       rect:
         serializedVersion: 2
-        x: 60
-        y: 16
+        x: 31
+        y: 1
         width: 9
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -897,12 +897,12 @@ TextureImporter:
       name: Power
       rect:
         serializedVersion: 2
-        x: 75
-        y: 16
+        x: 41
+        y: 1
         width: 10
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -918,12 +918,12 @@ TextureImporter:
       name: Info
       rect:
         serializedVersion: 2
-        x: 90
-        y: 16
+        x: 52
+        y: 1
         width: 6
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -939,12 +939,12 @@ TextureImporter:
       name: Help
       rect:
         serializedVersion: 2
-        x: 101
-        y: 16
+        x: 59
+        y: 1
         width: 7
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -957,15 +957,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Go Left
+      name: Go Back
       rect:
         serializedVersion: 2
-        x: 113
-        y: 16
+        x: 31
+        y: 51
         width: 12
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -978,15 +978,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Go Right
+      name: Go Forward
       rect:
         serializedVersion: 2
-        x: 128
-        y: 16
+        x: 44
+        y: 51
         width: 12
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
