@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4458969900349962626}
   - component: {fileID: 9171819320455344566}
-  m_Layer: 8
+  - component: {fileID: 6889345912444251599}
+  m_Layer: 9
   m_Name: Tmp Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,6 +83,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!60 &6889345912444251599
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4943449227197586713}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6, y: 1.6}
+    newSize: {x: 0.32, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.037533, y: 0.32237303}
+      - {x: -0.34185797, y: 0.22209239}
+      - {x: -0.44767284, y: -0.18372244}
+      - {x: -0.46627778, y: -0.49185783}
+      - {x: -0.2825552, y: -0.67558014}
+      - {x: 0.24069752, y: -0.66627765}
+      - {x: 0.38989258, y: -0.51976526}
+      - {x: 0.52076876, y: -0.1885407}
+      - {x: 0.3635128, y: 0.18123353}
 --- !u!1 &6329764495154692096
 GameObject:
   m_ObjectHideFlags: 0
@@ -187,12 +222,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialHealth: 100
-  flyFallSpeed: 0.5
-  jumpSpeed: 5
-  abilityCooldowns:
-  - 3
-  - 3
-  - 3
+  punchCooldown: 0.5
+  parameterSets:
+  - {fileID: 11400000, guid: 96a44e2bb3658cf49ba5b426a7941335, type: 2}
+  - {fileID: 11400000, guid: 3f07e4884e9a4c441a9b784f1094ff79, type: 2}
+  - {fileID: 11400000, guid: ccec658183907274ba30be15a275e3a7, type: 2}
   groundingLayerMask:
     serializedVersion: 2
     m_Bits: 55

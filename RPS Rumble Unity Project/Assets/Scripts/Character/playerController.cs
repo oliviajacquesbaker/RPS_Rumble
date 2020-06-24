@@ -38,13 +38,22 @@ public class PlayerController : MonoBehaviour
     private int activeCharacterIndex;
     public float health { get; private set; }
     [System.NonSerialized]
-    public float[] abilityCooldownStates = new float[] { 0, 0, 0 };
+    public float[] abilityCooldownStates;
+    [System.NonSerialized]
+    public float punchCooldownState;
 
     //initial data
     public float initialHealth = 100;
-    public float flyFallSpeed = .5f;
-    public float jumpSpeed = 2f;
-    public float[] abilityCooldowns = new float[] { 3, 3, 3 };
+    public float punchCooldown = .5f;
+    public CharacterParameterSet[] parameterSets;
+
+    public CharacterParameterSet currentParameters
+    {
+        get
+        {
+            return parameterSets[activeCharacterIndex];
+        }
+    }
 
     [Space]
     [SerializeField]
@@ -82,15 +91,17 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Movement", movement);
 
         //trigger a punch/ability
-        if (punchTrigger.isSet) {
+        if (punchTrigger.isSet && punchCooldownState <= 0) {
             animator.SetTrigger("Punch");
+            punchCooldownState = punchCooldown;
+            punchAction();
         }
 
         if (abilityTrigger.isSet && abilityCooldownStates[activeCharacterIndex] <= 0)
         {
             animator.SetTrigger("Ablity");
             abilityTrigger.reset();
-            abilityCooldownStates[activeCharacterIndex] = abilityCooldowns[activeCharacterIndex];
+            abilityCooldownStates[activeCharacterIndex] = currentParameters.abilityCooldown;
         }
     }
 
@@ -102,16 +113,16 @@ public class PlayerController : MonoBehaviour
         if (jumpTrigger.isSet && isGrounded)
         {
             Vector2 velocity = rigidbody.velocity;
-            velocity.y = jumpSpeed;
+            velocity.y = currentParameters.jumpSpeed;
             rigidbody.velocity = velocity;
             jumpTrigger.reset();
         }
 
         //flying
-        if (jumping && activeCharacterIndex == 1)
+        if (jumping && currentParameters.canFly)
         {
             Vector2 velocity = rigidbody.velocity;
-            velocity.y = Mathf.Max(velocity.y, -flyFallSpeed);
+            velocity.y = Mathf.Max(velocity.y, -currentParameters.flyFallSpeed);
             rigidbody.velocity = velocity;
         }
     }
@@ -126,11 +137,19 @@ public class PlayerController : MonoBehaviour
 
     private void updateCooldowns()
     {
+        punchCooldownState -= Time.fixedDeltaTime;
+        punchCooldownState = Mathf.Clamp(punchCooldownState, 0, punchCooldown);
+
         for (int i = 0; i < abilityCooldownStates.Length; i++)
         {
             abilityCooldownStates[i] -= Time.fixedDeltaTime;
-            abilityCooldownStates[i] = Mathf.Clamp(abilityCooldownStates[i], 0, abilityCooldowns[i]);
+            abilityCooldownStates[i] = Mathf.Clamp(abilityCooldownStates[i], 0, currentParameters.abilityCooldown);
         }
+    }
+
+    private void punchAction()
+    {
+
     }
 
     public void rockAbility()
@@ -162,6 +181,7 @@ public class PlayerController : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         health = initialHealth;
+        abilityCooldownStates = new float[parameterSets.Length];
 
         //initialize state
         selectRandomCharacter();
