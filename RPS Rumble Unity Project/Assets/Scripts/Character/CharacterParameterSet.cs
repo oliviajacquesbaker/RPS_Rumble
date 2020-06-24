@@ -16,6 +16,7 @@ public class CharacterParameterSet : ScriptableObject
     [Header("Combat")]
     public float punchDamage = 5;
     public float damageResistance = 0;
+    public float crouchDamageResistance = 0;
 
     private void OnValidate()
     {
@@ -26,5 +27,6 @@ public class CharacterParameterSet : ScriptableObject
 
         punchDamage = Mathf.Max(punchDamage, 0);
         damageResistance = Mathf.Max(damageResistance, 0);
+        crouchDamageResistance = Mathf.Max(crouchDamageResistance, 0);
     }
 }

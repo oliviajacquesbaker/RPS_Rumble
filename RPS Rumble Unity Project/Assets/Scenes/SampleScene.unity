@@ -615,6 +615,16 @@ PrefabInstance:
       propertyPath: scissorsKey
       value: Scissors 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4943449227197586713, guid: e84db873224fa4641917fd7bc9dade91,
+        type: 3}
+      propertyPath: m_Name
+      value: Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 4943449227197586713, guid: e84db873224fa4641917fd7bc9dade91,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6329764495154692096, guid: e84db873224fa4641917fd7bc9dade91,
         type: 3}
       propertyPath: m_Name
@@ -675,5 +685,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9171819320455344566, guid: e84db873224fa4641917fd7bc9dade91,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5770437819054901188, guid: e54adbc3d908e4140b9d7fd310d8d47c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e84db873224fa4641917fd7bc9dade91, type: 3}

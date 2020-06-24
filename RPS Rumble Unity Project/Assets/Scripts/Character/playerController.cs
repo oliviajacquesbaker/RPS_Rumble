@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
     public float punchCooldownState;
 
     //initial data
+    public float arenaWidth = 10;
     public float initialHealth = 100;
     public float punchCooldown = .5f;
     public CharacterParameterSet[] parameterSets;
@@ -86,9 +87,12 @@ public class PlayerController : MonoBehaviour
         animator.SetInteger("SubcharID", activeCharacterIndex);
 
         //set movement state
-        animator.SetBool("Jump", jumpTrigger.isSet);
+        animator.SetBool("Jump Held", jumpTrigger.isSet);
         animator.SetBool("Crouch", crouching);
-        animator.SetFloat("Movement", movement);
+        animator.SetBool("Grounded", isGrounded);
+        animator.SetFloat("Move Speed", Mathf.Abs(movement));
+        if (movement != 0)
+            animator.SetBool("Move Direction", movement < 0 ? true : false);
 
         //trigger a punch/ability
         if (punchTrigger.isSet && punchCooldownState <= 0) {
@@ -116,6 +120,7 @@ public class PlayerController : MonoBehaviour
             velocity.y = currentParameters.jumpSpeed;
             rigidbody.velocity = velocity;
             jumpTrigger.reset();
+            animator.SetTrigger("Jump");
         }
 
         //flying
@@ -169,10 +174,9 @@ public class PlayerController : MonoBehaviour
 
     private void OnAnimatorMove()
     {
-        transform.Translate(-animator.deltaPosition, Space.World);
-        Vector2 velocity = rigidbody.velocity;
-        velocity.x = animator.deltaPosition.x / Time.fixedDeltaTime;
-        rigidbody.velocity = velocity;
+        transform.Translate(animator.deltaPosition, Space.World);
+        float x = Mathf.Clamp(transform.position.x, -arenaWidth / 2, arenaWidth / 2);
+        transform.position = new Vector3(x, transform.position.y);
     }
 
     private void Awake()

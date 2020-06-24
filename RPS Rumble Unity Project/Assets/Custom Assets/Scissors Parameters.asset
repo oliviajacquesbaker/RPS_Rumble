@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffac1c54e6c6c214f9e965e1378ba177, type: 3}
   m_Name: Scissors Parameters
   m_EditorClassIdentifier: 
-  jumpSpeed: 2
+  jumpSpeed: 3
   canFly: 0
   flyFallSpeed: 0.5
   abilityCooldown: 3
-  punchDamage: 5
-  punchCooldown: 0.5
-  damageResistance: 0
+  punchDamage: 15
+  damageResistance: 0.25
+  crouchDamageResistance: 0.3
