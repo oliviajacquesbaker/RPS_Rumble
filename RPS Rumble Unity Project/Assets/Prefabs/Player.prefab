@@ -294,7 +294,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 25
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -640,7 +640,6 @@ MonoBehaviour:
   startingDirection: 0
   initialHealth: 100
   punchCooldown: 0.5
-  punchDistance: 0.25
   groundSlamDamage: 30
   parameterSets:
   - {fileID: 11400000, guid: 96a44e2bb3658cf49ba5b426a7941335, type: 2}
