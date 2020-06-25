@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(CircleCollider2D))]
 public class PlayerController : MonoBehaviour
 {
     //movement variables
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private new Rigidbody2D rigidbody;
     private Animator animator;
+    private new CircleCollider2D collider;
 
     //player data
     private int activeCharacterIndex;
@@ -41,11 +43,14 @@ public class PlayerController : MonoBehaviour
     public float[] abilityCooldownStates;
     [System.NonSerialized]
     public float punchCooldownState;
+    private bool facing;
 
     //initial data
     public float arenaWidth = 10;
+    public bool startingDirection = false;
     public float initialHealth = 100;
     public float punchCooldown = .5f;
+    public float punchDistance = .5f;
     public CharacterParameterSet[] parameterSets;
 
     public CharacterParameterSet currentParameters
@@ -59,6 +64,8 @@ public class PlayerController : MonoBehaviour
     [Space]
     [SerializeField]
     private LayerMask groundingLayerMask;
+    [SerializeField]
+    private LayerMask punchLayerMask;
 
     public void punch()
     {
@@ -91,14 +98,14 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Crouch", crouching);
         animator.SetBool("Grounded", isGrounded);
         animator.SetFloat("Move Speed", Mathf.Abs(movement));
-        if (movement != 0)
-            animator.SetBool("Move Direction", movement < 0 ? true : false);
+        animator.SetBool("Move Direction", facing);
 
         //trigger a punch/ability
         if (punchTrigger.isSet && punchCooldownState <= 0) {
             animator.SetTrigger("Punch");
             punchCooldownState = punchCooldown;
             punchAction();
+            punchTrigger.reset();
         }
 
         if (abilityTrigger.isSet && abilityCooldownStates[activeCharacterIndex] <= 0)
@@ -112,7 +119,11 @@ public class PlayerController : MonoBehaviour
     private void updateMovement()
     {
         //horizontal movement handled by animator
-        
+        if (movement != 0)
+        {
+            facing = movement < 0 ? true : false;
+        }
+
         //jumping
         if (jumpTrigger.isSet && isGrounded)
         {
@@ -154,7 +165,35 @@ public class PlayerController : MonoBehaviour
 
     private void punchAction()
     {
+        Vector2 punchDir = Vector2.right * (facing ? -1 : 1);
+        Vector2 origin = collider.offset + (Vector2)transform.position;
 
+        RaycastHit2D[] hits = new RaycastHit2D[5];
+
+        hits = Physics2D.RaycastAll(origin, punchDir, punchDistance + collider.radius, punchLayerMask);
+
+        if (hits.Length > 0)
+        {
+            for (int i = 0; i < hits.Length; i++)
+            {
+                PlayerController targetPlayer = hits[i].collider.GetComponentInParent<PlayerController>();
+
+                if (!targetPlayer || targetPlayer == this)
+                    continue;
+
+                float damageResistance = targetPlayer.crouching ? targetPlayer.currentParameters.crouchDamageResistance : targetPlayer.currentParameters.damageResistance;
+                float damageMultiplier = 1f / (1 + damageResistance);
+                float damage = damageMultiplier * currentParameters.punchDamage;
+
+                targetPlayer.damage(damage);
+                break;
+            }
+        }
+    }
+
+    public void damage(float hp)
+    {
+        health = Mathf.Max(health - hp, 0);
     }
 
     public void rockAbility()
@@ -184,12 +223,16 @@ public class PlayerController : MonoBehaviour
         //initialize variables
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        collider = GetComponent<CircleCollider2D>();
         health = initialHealth;
         abilityCooldownStates = new float[parameterSets.Length];
 
         //initialize state
         selectRandomCharacter();
         checkGround();
+
+        animator.SetBool("Move Direction", startingDirection);
+        facing = startingDirection;
         updateAnimations();
     }
 
@@ -197,8 +240,8 @@ public class PlayerController : MonoBehaviour
     {
         //update everything
         checkGround();
-        updateAnimations();
         updateMovement();
+        updateAnimations();
         updateCooldowns();
     }
 }

@@ -10,22 +10,24 @@ public class HealthBar : MonoBehaviour
     private int playerNum;
     private Slider slider;
     private Animator animator;
+
     void Awake()
     {
         player = GameManager.Instance.players[playerNum];
+        slider = GetComponent<Slider>();
+        animator = GetComponent<Animator>();
     }
 
-    //in case of like an item or ability that increases health
-    void changeHealthValue(float val, int dir)
+    private void Update()
     {
-        if (dir >= 0)
+        if (player.health != slider.value)
         {
-            slider.value += val;
-            animator.SetTrigger("Take Damage");
-        }
-        else
-        {
-            slider.value -= val;
+            if (player.health < slider.value)
+            {
+                animator.SetTrigger("Take Damage");
+            }
+
+            slider.value = player.health;
         }
     }
 }

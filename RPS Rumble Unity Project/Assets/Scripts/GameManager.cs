@@ -2,53 +2,46 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
-
-
-public enum GameState
-{
-    MENU,
-    PAUSE,
-    PLAY,
-    GAMEOVER
-}
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public PlayerController[] players { get; private set; }
-    private GameState currentState;
-    [SerializeField]
-    private string menuScene;
-    [SerializeField]
-    private string playScene;
-    [SerializeField]
-    private string endScene;
+    public PlayerController[] players;
+    private bool playing = false;
+
+    public Countdown counter;
+    public EndPannel endPannel;
+
     void Awake()
     {
         if(Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
         }
-
-        players = FindObjectsOfType<PlayerController>();
     }
 
-    bool checkGameOver()
+    private void Start()
     {
-        for(int i=0; i<players.Length; i++)
+        counter.Trigger();
+        disablePlayers();
+    }
+
+    int checkWin()
+    {
+        for (int i = 0; i < players.Length; i++)
         {
             if (players[i].health <= 0)
             {
-                return true;
+                return i == 1 ? 0 : 1;
             }
         }
-        return false;
+        return -1;
     }
 
     void disablePlayers()
@@ -67,77 +60,31 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void pauseGame()
+     void endGame(int winner)
     {
         disablePlayers();
-        currentState = GameState.PAUSE;
-    }
-
-    void unpauseGame()
-    {
-        enablePlayers();
-        currentState = GameState.PLAY;
-    }
-
-     void endGame()
-    {
-        disablePlayers();
-        SceneManager.LoadScene(endScene);
-        currentState = GameState.GAMEOVER;
-    }
-
-    bool checkForPause()
-    {
-        //idk how we're doing this,, by pressing a key? by clicking a button?
-        return false;
-    }
-
-    bool checkForStart()
-    {
-        //same here, not sure how to check until the menu is actually set up
-        return false;
+        endPannel.Show(winner);
     }
 
     void startGame()
     {
-        SceneManager.LoadScene(playScene);
         enablePlayers();
-        currentState = GameState.PLAY;
+        playing = true;
     }
 
     void Update()
     {
-        if(currentState == GameState.PLAY)
+        if (playing)
         {
-            if (checkGameOver())
+            int winner = checkWin();
+            if (winner != -1)
             {
-                endGame();
-            }else if (checkForPause())
-            {
-                pauseGame();
+                endGame(winner);
             }
         }
-        else if (currentState == GameState.PAUSE)
+        else if (counter.isTriggered && counter.isComplete)
         {
-            if (checkForPause())
-            {
-                unpauseGame();
-            }
-        }
-        else if (currentState == GameState.MENU)
-        {
-            if (checkForStart())
-            {
-                startGame();
-            }
-        }
-        else if (currentState == GameState.GAMEOVER)
-        {
-            //smthn abt,,, if click rematch,
-            //startGame();
-            //if click menus,
-            //SceneManager.LoadScene(menuScene);
+            startGame();
         }
     }
-
 }
