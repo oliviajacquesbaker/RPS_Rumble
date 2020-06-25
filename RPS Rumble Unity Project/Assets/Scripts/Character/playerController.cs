@@ -50,7 +50,6 @@ public class PlayerController : MonoBehaviour
     public bool startingDirection = false;
     public float initialHealth = 100;
     public float punchCooldown = .5f;
-    public float punchDistance = .5f;
     public float groundSlamDamage = 20;
     public CharacterParameterSet[] parameterSets;
 
@@ -171,7 +170,7 @@ public class PlayerController : MonoBehaviour
 
         RaycastHit2D[] hits = new RaycastHit2D[5];
 
-        hits = Physics2D.CircleCastAll(origin, .3f, punchDir, punchDistance + collider.radius, punchLayerMask);
+        hits = Physics2D.CircleCastAll(origin, .3f, punchDir, currentParameters.punchDistance + collider.radius, punchLayerMask);
 
         if (hits.Length > 0)
         {

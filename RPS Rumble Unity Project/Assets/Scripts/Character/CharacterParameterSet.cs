@@ -15,6 +15,7 @@ public class CharacterParameterSet : ScriptableObject
 
     [Header("Combat")]
     public float punchDamage = 5;
+    public float punchDistance = .5f;
     public float damageResistance = 0;
     public float crouchDamageResistance = 0;
 

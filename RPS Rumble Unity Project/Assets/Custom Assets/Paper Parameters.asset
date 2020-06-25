@@ -16,6 +16,7 @@ MonoBehaviour:
   canFly: 1
   flyFallSpeed: 0.35
   abilityCooldown: 3
-  punchDamage: 15
+  punchDamage: 10
+  punchDistance: 0.5
   damageResistance: 0
   crouchDamageResistance: 0.1

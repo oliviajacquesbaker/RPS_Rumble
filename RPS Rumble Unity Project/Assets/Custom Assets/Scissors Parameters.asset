@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpSpeed: 4
   canFly: 0
-  flyFallSpeed: 0.5
+  flyFallSpeed: 1.5
   abilityCooldown: 3
   punchDamage: 15
+  punchDistance: 0.5
   damageResistance: 0.25
   crouchDamageResistance: 0.3
