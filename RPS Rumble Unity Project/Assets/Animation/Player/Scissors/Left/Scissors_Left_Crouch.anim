@@ -65,13 +65,13 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Colliders/Rock Crouch
+    path: Colliders/Scissors Crouch
     classID: 1
     script: {fileID: 0}
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 6490518340326617606, guid: e54adbc3d908e4140b9d7fd310d8d47c,
+      value: {fileID: -3733097830291599174, guid: e54adbc3d908e4140b9d7fd310d8d47c,
         type: 3}
     attribute: m_Sprite
     path: Sprite
@@ -85,7 +85,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 350433201
+      path: 2225707127
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -113,7 +113,7 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     pptrCurveMapping:
-    - {fileID: 6490518340326617606, guid: e54adbc3d908e4140b9d7fd310d8d47c, type: 3}
+    - {fileID: -3733097830291599174, guid: e54adbc3d908e4140b9d7fd310d8d47c, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -265,7 +265,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Colliders/Rock Crouch
+    path: Colliders/Scissors Crouch
     classID: 1
     script: {fileID: 0}
   m_EulerEditorCurves: []

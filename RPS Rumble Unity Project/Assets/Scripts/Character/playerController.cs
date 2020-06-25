@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour
     private void checkGround()
     {
         RaycastHit2D hit;
-        hit = Physics2D.Raycast(transform.position, Vector2.down, .01f, groundingLayerMask);
+        hit = Physics2D.Raycast(transform.position, Vector2.down, .02f, groundingLayerMask);
 
         isGrounded = hit.collider;
     }
@@ -170,7 +170,7 @@ public class PlayerController : MonoBehaviour
 
         RaycastHit2D[] hits = new RaycastHit2D[5];
 
-        hits = Physics2D.RaycastAll(origin, punchDir, punchDistance + collider.radius, punchLayerMask);
+        hits = Physics2D.CircleCastAll(origin, .3f, punchDir, punchDistance + collider.radius, punchLayerMask);
 
         if (hits.Length > 0)
         {
