@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
     public float initialHealth = 100;
     public float punchCooldown = .5f;
     public float punchDistance = .5f;
+    public float groundSlamDamage = 20;
     public CharacterParameterSet[] parameterSets;
 
     public CharacterParameterSet currentParameters
@@ -94,7 +95,7 @@ public class PlayerController : MonoBehaviour
         animator.SetInteger("SubcharID", activeCharacterIndex);
 
         //set movement state
-        animator.SetBool("Jump Held", jumpTrigger.isSet);
+        animator.SetBool("Jump Held", jumping);
         animator.SetBool("Crouch", crouching);
         animator.SetBool("Grounded", isGrounded);
         animator.SetFloat("Move Speed", Mathf.Abs(movement));
@@ -108,11 +109,11 @@ public class PlayerController : MonoBehaviour
             punchTrigger.reset();
         }
 
-        if (abilityTrigger.isSet && abilityCooldownStates[activeCharacterIndex] <= 0)
+        if (abilityTrigger.isSet && abilityCooldownStates[activeCharacterIndex] <= 0 && isGrounded)
         {
+            abilityCooldownStates[activeCharacterIndex] = currentParameters.abilityCooldown;
             animator.SetTrigger("Ablity");
             abilityTrigger.reset();
-            abilityCooldownStates[activeCharacterIndex] = currentParameters.abilityCooldown;
         }
     }
 
@@ -198,7 +199,21 @@ public class PlayerController : MonoBehaviour
 
     public void rockAbility()
     {
+        PlayerController[] players = GameManager.Instance.players;
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i] == this)
+                continue;
 
+            if (!players[i].isGrounded)
+                continue;
+
+            float damageResistance = !players[i].crouching ? players[i].currentParameters.crouchDamageResistance : players[i].currentParameters.damageResistance;
+            float damageMultiplier = 1f / (1 + damageResistance);
+            float damage = damageMultiplier * groundSlamDamage;
+
+            players[i].damage(damage);
+        }
     }
 
     public void paperAbility()
@@ -208,7 +223,7 @@ public class PlayerController : MonoBehaviour
 
     public void scissorsAbility()
     {
-        
+
     }
 
     private void OnAnimatorMove()
