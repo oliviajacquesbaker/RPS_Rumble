@@ -1747,21 +1747,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6991496116240374850, guid: e84db873224fa4641917fd7bc9dade91,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 1.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6991496116240374850, guid: e84db873224fa4641917fd7bc9dade91,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6991496116240374850, guid: e84db873224fa4641917fd7bc9dade91,
-        type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e84db873224fa4641917fd7bc9dade91, type: 3}
 --- !u!114 &2059216562 stripped
@@ -1822,6 +1807,16 @@ PrefabInstance:
         type: 3}
       propertyPath: scissorsKey
       value: Scissors 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3203675521858531495, guid: e84db873224fa4641917fd7bc9dade91,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5506771194686380398, guid: e84db873224fa4641917fd7bc9dade91,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6329764495154692096, guid: e84db873224fa4641917fd7bc9dade91,
         type: 3}
@@ -1893,17 +1888,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6991496116240374850, guid: e84db873224fa4641917fd7bc9dade91,
+    - target: {fileID: 8455333744616370119, guid: e84db873224fa4641917fd7bc9dade91,
         type: 3}
-      propertyPath: m_Size.x
-      value: 1.6
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6991496116240374850, guid: e84db873224fa4641917fd7bc9dade91,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6991496116240374850, guid: e84db873224fa4641917fd7bc9dade91,
+    - target: {fileID: 9171819320455344566, guid: e84db873224fa4641917fd7bc9dade91,
         type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 0

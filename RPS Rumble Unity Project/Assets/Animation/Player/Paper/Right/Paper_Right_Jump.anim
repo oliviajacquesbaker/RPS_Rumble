@@ -72,7 +72,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -81,7 +81,7 @@ AnimationClip:
         outWeight: 0
       - serializedVersion: 3
         time: 0.16666667
-        value: 1
+        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -92,16 +92,16 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Colliders/Rock Full
+    path: Colliders/Paper Full
     classID: 1
     script: {fileID: 0}
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -6127215198058392024, guid: e54adbc3d908e4140b9d7fd310d8d47c,
+      value: {fileID: 5489095558992561210, guid: e54adbc3d908e4140b9d7fd310d8d47c,
         type: 3}
     - time: 0.16666667
-      value: {fileID: -6127215198058392024, guid: e54adbc3d908e4140b9d7fd310d8d47c,
+      value: {fileID: 5489095558992561210, guid: e54adbc3d908e4140b9d7fd310d8d47c,
         type: 3}
     attribute: m_Sprite
     path: Sprite
@@ -115,7 +115,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 3551534961
+      path: 2042008016
       attribute: 2086281974
       script: {fileID: 0}
       typeID: 1
@@ -143,8 +143,8 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     pptrCurveMapping:
-    - {fileID: -6127215198058392024, guid: e54adbc3d908e4140b9d7fd310d8d47c, type: 3}
-    - {fileID: -6127215198058392024, guid: e54adbc3d908e4140b9d7fd310d8d47c, type: 3}
+    - {fileID: 5489095558992561210, guid: e54adbc3d908e4140b9d7fd310d8d47c, type: 3}
+    - {fileID: 5489095558992561210, guid: e54adbc3d908e4140b9d7fd310d8d47c, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -339,7 +339,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -348,7 +348,7 @@ AnimationClip:
         outWeight: 0
       - serializedVersion: 3
         time: 0.16666667
-        value: 1
+        value: 0
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -359,7 +359,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_IsActive
-    path: Colliders/Rock Full
+    path: Colliders/Paper Full
     classID: 1
     script: {fileID: 0}
   m_EulerEditorCurves: []

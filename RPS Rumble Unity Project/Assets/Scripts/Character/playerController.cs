@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
     public bool startingDirection = false;
     public float initialHealth = 100;
     public float punchCooldown = .5f;
-    public float punchDistance = .5f;
+    public float groundSlamDamage = 20;
     public CharacterParameterSet[] parameterSets;
 
     public CharacterParameterSet currentParameters
@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
         animator.SetInteger("SubcharID", activeCharacterIndex);
 
         //set movement state
-        animator.SetBool("Jump Held", jumpTrigger.isSet);
+        animator.SetBool("Jump Held", jumping);
         animator.SetBool("Crouch", crouching);
         animator.SetBool("Grounded", isGrounded);
         animator.SetFloat("Move Speed", Mathf.Abs(movement));
@@ -108,11 +108,11 @@ public class PlayerController : MonoBehaviour
             punchTrigger.reset();
         }
 
-        if (abilityTrigger.isSet && abilityCooldownStates[activeCharacterIndex] <= 0)
+        if (abilityTrigger.isSet && abilityCooldownStates[activeCharacterIndex] <= 0 && isGrounded)
         {
+            abilityCooldownStates[activeCharacterIndex] = currentParameters.abilityCooldown;
             animator.SetTrigger("Ablity");
             abilityTrigger.reset();
-            abilityCooldownStates[activeCharacterIndex] = currentParameters.abilityCooldown;
         }
     }
 
@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour
     private void checkGround()
     {
         RaycastHit2D hit;
-        hit = Physics2D.Raycast(transform.position, Vector2.down, .01f, groundingLayerMask);
+        hit = Physics2D.Raycast(transform.position, Vector2.down, .02f, groundingLayerMask);
 
         isGrounded = hit.collider;
     }
@@ -170,7 +170,7 @@ public class PlayerController : MonoBehaviour
 
         RaycastHit2D[] hits = new RaycastHit2D[5];
 
-        hits = Physics2D.RaycastAll(origin, punchDir, punchDistance + collider.radius, punchLayerMask);
+        hits = Physics2D.CircleCastAll(origin, .3f, punchDir, currentParameters.punchDistance + collider.radius, punchLayerMask);
 
         if (hits.Length > 0)
         {
@@ -198,7 +198,21 @@ public class PlayerController : MonoBehaviour
 
     public void rockAbility()
     {
+        PlayerController[] players = GameManager.Instance.players;
+        for (int i = 0; i < players.Length; i++)
+        {
+            if (players[i] == this)
+                continue;
 
+            if (!players[i].isGrounded)
+                continue;
+
+            float damageResistance = !players[i].crouching ? players[i].currentParameters.crouchDamageResistance : players[i].currentParameters.damageResistance;
+            float damageMultiplier = 1f / (1 + damageResistance);
+            float damage = damageMultiplier * groundSlamDamage;
+
+            players[i].damage(damage);
+        }
     }
 
     public void paperAbility()
@@ -208,7 +222,7 @@ public class PlayerController : MonoBehaviour
 
     public void scissorsAbility()
     {
-        
+
     }
 
     private void OnAnimatorMove()
