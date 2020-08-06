@@ -3,17 +3,13 @@ A local multiplayer, 2D fighter inspired by the classic game of rock-paper-sciss
 
 ## Download & Testing
 
-(currently empty links, need to upload builds folder)
+[Windows (Zip)](https://github.com/piptstc/RPS_Rumble/blob/master/Builds/RPS%20Rumble%20(Windows).zip)
 
-[Windows (Installer)]()
+[Mac (Zip)](https://github.com/piptstc/RPS_Rumble/blob/master/Builds/RPS%20Rumble%20(Mac).zip)
 
-[Windows (Zip)]()
+[Linux (Zip)](https://github.com/piptstc/RPS_Rumble/blob/master/Builds/RPS%20Rumble%20(Linux).zip)
 
-[Mac (Zip)]()
-
-[Linux (Zip)]()
-
-To run the game on Windows, either download the zip version, extract all the files into a folder, and run "RPS Rumble.exe", or download the installer version and run the installer. 
+To run the game on Windows, download the zip version, extract all the files into a folder, and run "RPS Rumble.exe". 
 
 To run the game on Mac, download the Mac zip file and unzip it, then open "RPS Rumble - Mac.app".
 
